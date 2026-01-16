@@ -13,6 +13,8 @@ package org.rosterleague.common;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerDetails implements Serializable {
     @Serial
@@ -22,6 +24,8 @@ public class PlayerDetails implements Serializable {
     private final String name;
     private final String position;
     private final double salary;
+    private List<String> addresses;
+
 
     public PlayerDetails(String id, String name, String position,
             double salary) {
@@ -30,8 +34,8 @@ public class PlayerDetails implements Serializable {
         this.name = name;
         this.position = position;
         this.salary = salary;
-    }
 
+    }
     public String getId() {
         return id;
     }
@@ -48,9 +52,11 @@ public class PlayerDetails implements Serializable {
         return salary;
     }
 
+    public List<String> getAddresses() {return addresses;}
+
     @Override
     public String toString() {
-        return id + " " + name + " " + position + " " + salary;
+        return id + " " + name + " " + position + " " + salary + " " + addresses;
     }
 
 }

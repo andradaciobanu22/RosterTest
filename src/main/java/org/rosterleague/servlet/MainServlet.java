@@ -56,6 +56,7 @@ public class MainServlet extends HttpServlet {
             // Players, Team T1
             ejbRequest.createPlayer("P1", "Phil Jones", "goalkeeper", 100.00);
             ejbRequest.addPlayer("P1", "T1");
+            
 
             ejbRequest.createPlayer("P2", "Alice Smith", "defender", 505.00);
             ejbRequest.addPlayer("P2", "T1");

@@ -13,12 +13,11 @@ package org.rosterleague.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "PERSISTENCE_ROSTER_PLAYER")
@@ -30,19 +29,32 @@ public class Player implements Serializable {
     private String position;
     private double salary;
     private Collection<Team> teams;
+    private List<String> addresses;
         
     /** Creates a new instance of Player */
     public Player() {
+
+        this.addresses = new ArrayList<>();
+
     }
-    
     public Player(String id, String name, String position, double salary) {
         this.id = id;
         this.name = name;
         this.position = position;
         this.salary = salary;
+
     }
 
     @Id
+
+    public List<String> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<String> addresses) {
+        this.addresses = addresses;
+    }
+
     public String getId() {
         return id;
     }
@@ -91,5 +103,4 @@ public class Player implements Serializable {
     public void dropTeam(Team team) {
         this.getTeams().remove(team);
     }
-    
 }
